@@ -2,12 +2,12 @@ const NOMBRE = document.getElementById('nombre');
 const BOTON_NOMBRE = document.getElementById('botonNombre');
 const URL =  'https://jsonplaceholder.typicode.com/users';
 const RECUPERAR_DATOS = document.getElementById('recuperarDatos');
-const CONTAINER = document.querySelector('container');
+const CONTAINER = document.querySelector('#container');
 const IMPRIMIR_DATOS = document.getElementById('imprimirDatos');
 
-funcion obtenerDatos(funcion){
+function obtenerDatos(funcion){
     try{
-        fetch(URL_USUARIOS)
+        fetch(URL)
         .then(response => response.json())
         .then(data => {
             funcion(data)
@@ -19,8 +19,7 @@ funcion obtenerDatos(funcion){
 
 
 BOTON_NOMBRE.addEventListener('click', () => {
-    NOMBRE = "Luis"
-    alert("Su nombre es "+NOMBRE.value+" "+APELLIDO.value)
+    alert("Su nombre es "+NOMBRE.value);
 })
 
 function datosEnConsola(data){
@@ -45,6 +44,6 @@ function mostrarDatos(data){
     CONTAINER.innerHTML = htmlContentToAppend;
 }
 
-IMPRIMIR_DATOS.addeventListener('click'. () => {
+IMPRIMIR_DATOS.addEventListener('click', () => {
     obtenerDatos(mostrarDatos)
-})
+})}
